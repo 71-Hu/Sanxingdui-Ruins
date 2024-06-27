@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文物预览界面</title>
+<style>
+    body {  
+        background-color: #02090A;   
+        display: flex;    
+        flex-direction: column;    
+        align-items: center;    
+        justify-content: center;    
+        height: 100vh;    
+        margin: 0;    
+        padding: 20px;    
+        box-sizing: border-box;    
+		 overflow-y: scroll;
+    }    
+	.artifact-caption {
+	    font-size: 3em;
+	    color: white;
+	    text-align: center;
+	    position: absolute;
+	    bottom: -50px; /* 相对于圆形图片的底部位置 */
+	    left: 50%; /* 居中 */
+	    transform: translateX(-50%); /* 水平居中 */
+	    font-family: 华文行楷; /* 字体 */
+	}
+
+
+    .title {    
+        font-size: 6em;    
+        color: #FFF0BD;    
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);    
+        text-align: center; /* 居中显示 */  
+        position: absolute; /* 绝对定位 */  
+        top: 60px; /* 距离顶部20px */  
+        left: 50%; /* 居中 */  
+        transform: translateX(-50%); /* 水平居中 */  
+		font-family: 华文行楷; /* 字体 */
+    }    
+
+    .arrow {  
+        position: absolute;  
+        top: 50%;  
+        transform: translateY(-50%);  
+        cursor: pointer;  
+        font-size: 2em;  
+        color: white;  
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
+        transition: transform 0.2s; /* 添加过渡效果 */  
+    }  
+
+    .arrow.left {  
+        left: 20px;  
+    }  
+
+    .arrow.right {  
+        right: 20px;  
+    }  
+
+    .arrow:hover {  
+        transform: scale(1.2); /* 鼠标悬停时放大 */  
+    }  
+
+    .artifact-container {    
+        display: flex;    
+        justify-content: center; /* 水平居中 */  
+        align-items: center; /* 垂直居中（如果需要的话）*/  
+        margin-top: 0; /* 去除上外边距 */  
+        width: 100%; /* 确保容器宽度占满整个视口 */  
+    }    
+
+    .artifact-image {    
+        max-width: 600px; /* 使用max-width以便在较小的视口中图片能够自动缩放 */  
+        height: auto;    
+        cursor: pointer; /* 鼠标悬停时显示为可点击状态 */  
+        transition: opacity 0.5s; /* 添加过渡效果 */  
+    }  
+	.blue-circle {
+	        width: 600px;
+	        height: 600px;
+	        background: linear-gradient(to bottom, #227948, black);
+	        border-radius: 50%;
+	        position: absolute;
+	        top: 50%;
+	        left: 50%;
+	        transform: translate(-50%, -50%);
+	        z-index: -1; /* 将蓝色圆形图片放到底层 */
+	    }
+	.details-button {
+	    color: #FFF0BD;
+	    font-size: 1em;
+	    border: 2px solid yellow;
+	    padding: 5px 10px; /* 可以根据需要调整内边距 */
+	    position: absolute;
+	    bottom: -100px;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    font-style: italic;
+	    font-size: 1.5em;
+	}
+
+
+
+</style>
+</head>
+<body>
+
+<div class="title">必看文物</div>
+
+<div class="arrow left" onclick="rotateLeft()">❮</div>
+<div class="arrow right" onclick="rotateRight()">❯</div>
+
+<div class="artifact-container">    
+		<img src="image/14e780ae-5df6-4c94-a544-ebd611f4e7fc.png" alt="文物" class="artifact-image">
+		<div class="blue-circle"></div> <!-- 添加蓝色圆形图片 -->
+</div>    
+<div class="artifact-caption">商金杖</div> <!-- 移动文字说明到图片下方 -->
+<a href="index31.html" class="details-button" >查看详情</a>
+
+<script>
+    var images = ['image/14e780ae-5df6-4c94-a544-ebd611f4e7fc.png', 'image/635257d8-ccf2-482f-879f-4ba01f6447d8.png', 'image/bd7cee15-6fac-42eb-a43f-6e35406e772b.png', 'image/af678ee0-e038-4202-b20c-3cbcbbb6cc3f.png', 'image/98eb5790-0261-4fce-bdad-de43f485b331.png'];
+	var detailsLinks = ['index31.html', 'index32.html', 'index33.html', 'index34.html', 'index35.html']; // 存储详情页面的链接
+    var currentIndex = 0;
+    var artifactImage = document.querySelector('.artifact-image');
+	var detailsButton = document.querySelector('.details-button'); // 获取详情按钮
+	var artifactCaption = document.querySelector('.artifact-caption'); // 获取文字说明元素
+	var captions = ['商金杖', '商青铜神树', '商青铜立人像', '商戴金面罩青铜人头像', '商青铜人面具']; // 新增文字说明数组
+    function rotateLeft() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage();
+    }
+
+    function rotateRight() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+    }
+
+    function updateImage() {
+        artifactImage.style.opacity = 0; // 先将图片透明度设为0
+        setTimeout(function() {
+            artifactImage.src = images[currentIndex]; // 然后切换图片
+            artifactImage.style.opacity = 1; // 最后将图片透明度设为1
+			artifactCaption.textContent = captions[currentIndex]; // 更新文字说明
+        }, 500); // 设置延迟，与过渡效果时间一致
+	 // 创建蓝色圆形图片
+	var blueCircle = document.querySelector('.blue-circle');
+	var newBlueCircle = blueCircle.cloneNode(true);
+	newBlueCircle.style.zIndex = -1;
+	newBlueCircle.style.opacity = 0;
+	 setTimeout(function() {
+				 detailsButton.href = detailsLinks[currentIndex]; // 更新详情链接
+	             artifactImage.src = images[currentIndex]; // 然后切换图片
+	             artifactImage.style.opacity = 1; // 最后将图片透明度设为1
+	             if (currentIndex === 0) {
+	                 artifactImage.style.maxWidth = '500px';
+	                 artifactImage.style.maxHeight = 'auto';
+	                 artifactImage.style.marginTop = '0';
+	             } else if (currentIndex === 1) {
+	                 artifactImage.style.maxWidth = '400px';
+	                 artifactImage.style.maxHeight = '300';
+	                 artifactImage.style.marginTop = '150px';
+	             } else if (currentIndex === 2) {
+	                 artifactImage.style.maxWidth = '480px';
+	                 artifactImage.style.maxHeight = 'auto';
+	                 artifactImage.style.marginTop = '100px';
+				} else if (currentIndex === 3) {
+				    artifactImage.style.maxWidth = '400px';
+				    artifactImage.style.maxHeight = 'auto';
+				    artifactImage.style.marginTop = '10px';
+	             } else {
+	                 artifactImage.style.maxWidth = '500px';
+	                 artifactImage.style.maxHeight = 'auto';
+	                 artifactImage.style.marginTop = '0px';
+	             }
+	         }, 500); // 设置延迟，与过渡效果时间一致
+	
+	document.querySelector('.artifact-container').appendChild(newBlueCircle);
+    }
+	
+</script>
+
+</body>    
+</html>
