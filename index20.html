@@ -39,92 +39,92 @@
             top: 6.6%;
             left: 7.8%;
             color: white;
-            font-size: 64px;
+            font-size: 54px;
             text-align: center;
             z-index: 10;
             font-weight: bold;
             font-family: '宋体';
         }
-		.bottomword{
-			position: absolute;
-			bottom: 7%;
-			left: 50vw; /* 将元素向左移动到屏幕中心 */
-			ransform: translateX(-50%); 
-			color: white;
-			font-size: 50px;
-			text-align: left;
-			z-index: 10;
-			font-weight: bold;
-			font-family: '宋体';
-			text-align: center;
-			font-style: italic;
-		}
-		 .marker {
-			position: absolute;
-			width: 60px; /* 标记点的宽度，根据实际图片大小调整 */
-			height: auto; /* 标记点的高度，根据实际图片大小调整 */
-			z-index: 100;
-			cursor: pointer;
-		}
-		/* 为四个标记点添加不同的类或数据属性 */
-		#marker1 {
-			top: 47%;
-			left: 27.9%
-		}
-		#marker2 {
-			top: 28.5%; left: 56.5%;
-		}
-		#marker3 {
-			top: 49.7%; left: 61%;
-		}
-		#marker4 {
-			top: 29.7%; left: 74.2%;
-		}
-		
-		/* 矩形框样式 */
-		.infobox {
-			position: absolute;
-			background-color: #E1D1AE;
-			border: 3px solid black;
-			border-radius: 20px;
-			padding: 8px;
-			margin:0;
-			width: 450px;
-			display: none; /* 默认隐藏 */
-			z-index: 200;
-			color:black;
-			font-size: 28px;
-			flex-wrap: wrap;
-			text-indent: 1em;
-		}
-		#infobox1 {
-			top: 40%;   left: 10.5%;
-		}
-		#infobox2 {
-			top: 15.5%; left: 39%;
-		}
-		#infobox3 {
-			top: 47.7%; left: 42%;
-		}
-		#infobox4 {
-			top: 29.7%; left: 77.5%;
-		}
-		
+	.bottomword{
+		position: absolute;
+		bottom: 7%;
+		left: 50vw; /* 将元素向左移动到屏幕中心 */
+		ransform: translateX(-50%); 
+		color: white;
+		font-size: 40px;
+		text-align: left;
+		z-index: 10;
+		font-weight: bold;
+		font-family: '宋体';
+		text-align: center;
+		font-style: italic;
+	}
+	 .marker {
+		position: absolute;
+		width: 60px; /* 标记点的宽度，根据实际图片大小调整 */
+		height: auto; /* 标记点的高度，根据实际图片大小调整 */
+		z-index: 100;
+		cursor: pointer;
+	}
+	/* 为四个标记点添加不同的类或数据属性 */
+	#marker1 {
+		top: 47%;
+		left: 27.9%
+	}
+	#marker2 {
+		top: 28.5%; left: 56.5%;
+	}
+	#marker3 {
+		top: 49.7%; left: 61%;
+	}
+	#marker4 {
+		top: 29.7%; left: 74.2%;
+	}
+	
+	/* 矩形框样式 */
+	.infobox {
+		position: absolute;
+		background-color: #E1D1AE;
+		border: 3px solid black;
+		border-radius: 20px;
+		padding: 8px;
+		margin:0;
+		width: 200px;
+		display: none; /* 默认隐藏 */
+		z-index: 200;
+		color:black;
+		font-size: 18px;
+		flex-wrap: wrap;
+		text-indent: 1em;
+	}
+	#infobox1 {
+		top: 40%;   left: 10.5%;
+	}
+	#infobox2 {
+		top: 15.5%; left: 39%;
+	}
+	#infobox3 {
+		top: 47.7%; left: 42%;
+	}
+	#infobox4 {
+		top: 29.7%; left: 77.5%;
+	}
+	
 
-		/* 按钮样式 */
-		.btn {
-			position: fixed;
-			top: calc(50% + 200px); /* 调整按钮位置 */
-			left: 50%;
-			transform: translateX(-50%);
-			padding: 10px 20px;
-			background-color: #227948;
-			color: white;
-			border: none;
-			cursor: pointer;
-			z-index: 310;
-			display: none; /* 默认隐藏 */
-		}
+	/* 按钮样式 */
+	.btn {
+		position: fixed;
+		top: calc(50% + 200px); /* 调整按钮位置 */
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 10px 20px;
+		background-color: #227948;
+		color: white;
+		border: none;
+		cursor: pointer;
+		z-index: 310;
+		display: none; /* 默认隐藏 */
+	}
     </style>
 </head>
 <body>
