@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>古三星堆地图介绍</title>
+    <style>
+		:root {  
+			--oldmap-width: 70vw; /* 使用 CSS 变量来定义 oldmap 的宽度 */  
+		    } 
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+			background: linear-gradient(to right, #227948, black);
+        }
+        body {
+            background-image: url('img/background.jpg');
+            background-size:  auto 100vh; /* 设置背景图片宽度为100%，高度自动 */
+            background-repeat: no-repeat;
+            background-position: center; 
+			background-blend-mode: multiply;
+			background-color: rgba(0, 0, 0, 0.4);
+        }
+        .oldmap {
+			width: var(--oldmap-width);
+            background-image: url('img/oldmap.jpg');
+            background-size: 80% auto; /* 设置旧地图背景图片宽度为75%，高度自动 */
+            background-position:center; /* 设置旧地图背景图片在右侧居中显示 */
+			background-repeat: no-repeat;
+            height: 100vh; /* 使用视口高度 */
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        .word {
+            position: absolute;
+            top: 6.6%;
+            left: 7.8%;
+            color: white;
+            font-size: 64px;
+            text-align: center;
+            z-index: 10;
+            font-weight: bold;
+            font-family: '宋体';
+        }
+		.bottomword{
+			position: absolute;
+			bottom: 7%;
+			left: 50vw; /* 将元素向左移动到屏幕中心 */
+			ransform: translateX(-50%); 
+			color: white;
+			font-size: 50px;
+			text-align: left;
+			z-index: 10;
+			font-weight: bold;
+			font-family: '宋体';
+			text-align: center;
+			font-style: italic;
+		}
+		 .marker {
+			position: absolute;
+			width: 60px; /* 标记点的宽度，根据实际图片大小调整 */
+			height: auto; /* 标记点的高度，根据实际图片大小调整 */
+			z-index: 100;
+			cursor: pointer;
+		}
+		/* 为四个标记点添加不同的类或数据属性 */
+		#marker1 {
+			top: 47%;
+			left: 27.9%
+		}
+		#marker2 {
+			top: 28.5%; left: 56.5%;
+		}
+		#marker3 {
+			top: 49.7%; left: 61%;
+		}
+		#marker4 {
+			top: 29.7%; left: 74.2%;
+		}
+		
+		/* 矩形框样式 */
+		.infobox {
+			position: absolute;
+			background-color: #E1D1AE;
+			border: 3px solid black;
+			border-radius: 20px;
+			padding: 8px;
+			margin:0;
+			width: 450px;
+			display: none; /* 默认隐藏 */
+			z-index: 200;
+			color:black;
+			font-size: 28px;
+			flex-wrap: wrap;
+			text-indent: 1em;
+		}
+		#infobox1 {
+			top: 40%;   left: 10.5%;
+		}
+		#infobox2 {
+			top: 15.5%; left: 39%;
+		}
+		#infobox3 {
+			top: 47.7%; left: 42%;
+		}
+		#infobox4 {
+			top: 29.7%; left: 77.5%;
+		}
+		
+
+		/* 按钮样式 */
+		.btn {
+			position: fixed;
+			top: calc(50% + 200px); /* 调整按钮位置 */
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 10px 20px;
+			background-color: #227948;
+			color: white;
+			border: none;
+			cursor: pointer;
+			z-index: 310;
+			display: none; /* 默认隐藏 */
+		}
+    </style>
+</head>
+<body>
+    <div class="oldmap">
+		<!-- 四个标记点 -->
+		<img title="点击查看" id='marker1' class="marker" src="img/point.png"></div>
+		<img title="点击查看" id='marker2' class="marker" src="img/point.png"></div>
+		<img title="点击查看" id='marker3' class="marker" src="img/point.png"></div>
+		<img title="点击查看" id='marker4' class="marker" src="img/point.png"></div>
+		
+		<!-- 矩形框 -->
+		<div id="infobox1" class="infobox">
+			<p>三星堆祭祀区主要用于宗教祭祀活动，是古蜀人向神灵祈福和祷告的场所。</p>
+			<p>祭祀区内分布着多个祭祀坑，这些祭祀坑中出土了大量精美的青铜器、玉器、金器等文物，
+			这些文物不仅是古蜀国宗教信仰的体现，也反映了当时的社会结构和工艺水平。</p>
+		</div>
+		<div id="infobox2" class="infobox">
+			<p>三星堆宫殿区位于城址中部，是古蜀王国的象征，可能承担着行政管理和宗教祭祀的双重功能。</p>
+			<p>考古发现显示，宫殿区可能包括大型建筑基址，如F1，其规模宏大，显示出当时的建筑技术和工艺水平。</p>
+			<p>其发现为理解古蜀文明的政治组织和权力结构提供了关键线索。</p>
+		</div>
+		<div id="infobox3" class="infobox">
+			<p>三星堆古城的居住区分布密集，房屋结构主要以沟槽式地面建筑为主，房屋之间有一定的规划布局。</p>
+			<p>此外，居住区内设有排水沟、生活用水引水沟等城市配套设施，显示出其具备一定的城市功能和生活便利性。</p>
+			<p>遗址周围有多个村落，如三星村、真武村等，这些村落至今仍有居民居住，与三星堆遗址共同构成了一个历史文化与现代生活交融的社区。</p>
+		</div>
+		<div id="infobox4" class="infobox">
+			<p>三星堆古城包括三重城圈。第一重为月亮湾小城，第二重为三星堆城墙，第三重为南城墙。其中手工业作坊区就分布在第一重城圈内。</p>
+			<p>三星堆的手工业区孕育了古蜀国高度发达的青铜铸造技术、黄金冶炼加工技术、玉石器加工技术，还体现了独特的审美意识、宗教信仰和宇宙观。</p>
+		</div>
+		
+
+		<!-- 跳转按钮 -->
+		<button id="btnGoToPage" class="btn">查看更多</button>
+		
+	</div>
+    <div class="word">
+        请点击红色图标查看详细信息
+    </div>
+
+	<div class="bottomword">
+		“有蜀侯蚕丛，其目纵，始称王。”——《华阳国志·蜀志》
+	</div>
+
+	
+	 <script>
+		// 获取四个标记点和对应的矩形框
+		const marker1 = document.getElementById('marker1');
+		const marker2 = document.getElementById('marker2');
+		const marker3 = document.getElementById('marker3');
+		const marker4 = document.getElementById('marker4');
+
+		const infobox1 = document.getElementById('infobox1');
+		const infobox2 = document.getElementById('infobox2');
+		const infobox3 = document.getElementById('infobox3');
+		const infobox4 = document.getElementById('infobox4');
+		
+		// 添加点击事件监听器
+		marker1.addEventListener('click', () => {
+			showInfobox(infobox1);
+		});
+
+		marker2.addEventListener('click', () => {
+			showInfobox(infobox2);
+		});
+
+		marker3.addEventListener('click', () => {
+			showInfobox(infobox3);
+		});
+
+		marker4.addEventListener('click', () => {
+			showInfobox(infobox4);
+		});
+
+		// 函数：显示矩形框
+		function showInfobox(box) {
+			box.style.display = 'block';
+		}
+
+	</script>
+</body>
+</html>
