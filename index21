@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>三星堆介绍视频</title>
+		<style>
+			html{
+				background: linear-gradient(to bottom, #1A5835, black);
+			}
+		/* 设置视频容器样式 */
+		  .video-container {
+		    width:75%; /* 您可以根据需要设置视频的宽度 */
+		    margin: 20px auto; /* 居中显示 */
+			z-index: 1;
+		  }
+		  video {
+		    width: 100%; /* 视频宽度占容器的100% */
+		    height: auto; /* 高度自适应 */
+		  }
+		  
+		  .nextBtn{
+			  width:12%;
+			  height:auto;
+			  bottom:2%;
+			  padding-left: 82%;
+			  z-index: 100;
+		  }
+		</style>
+		
+	</head>
+	<body>
+		<div class="video-container">
+		  <video controls>
+		    <source src="img/introduceVideo.mp4" type="video/mp4">
+		  </video>
+		</div>
+		<a href=="https://www.example.com" target="_blank">
+			<img data-v-1288aa91="" class="nextBtn" 
+			src="https://industry.map.qq.com/cloud/sanxingdui/pc/home/screen/go.png?imageMogr2/format/webp/ignore-error/1" 
+			lazy="true" style="object-fit: cover;">
+		</a>
+	</body>
+	
+</html>
