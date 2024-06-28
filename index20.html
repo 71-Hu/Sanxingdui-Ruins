@@ -109,21 +109,66 @@
 	#infobox4 {
 		top: 29.7%; left: 77.5%;
 	}
-	
 
 	/* 按钮样式 */
-	.btn {
+	.endBtn {
+	  position: fixed;
+	  top: 6.6%; 
+	  left: 50%;
+	  transform: translate(-50%, 0);
+	  width:15%;
+	  height:9%;
+	  cursor: pointer;
+	  border: 3px solid black;
+	  border-radius: 20px;
+	  background-color: aliceblue;
+	  
+	  font-weight: bold;
+	  font-size: 24px;/* 和底部字体相同 */
+	  display: none; 
+	  justify-content: center; /* 水平居中文本 */
+	  align-items: center;
+	  color:#62470A;
+	  background-color: #EFD8A2;
+	}
+	/* 结束对话框样式 */
+	.endbox {
 		position: fixed;
-		top: calc(50% + 200px); /* 调整按钮位置 */
+		top: 50%;
 		left: 50%;
-		transform: translateX(-50%);
-		padding: 10px 20px;
-		background-color: #227948;
-		color: white;
-		border: none;
+		transform: translate(-50%, -50%);
+		z-index: 305;
+		display: none;
+		background-color: #1D3426;
+		border: 3px solid black;
+		border-radius: 20px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		width:40%;
+		height:80%;
+	}
+	.endbox img {
+		height: 80%;
+		width: auto;
+		display:block;
+		margin:4% auto;
+	}
+	/* 跳转按钮样式 */
+	.nextBtn {
 		cursor: pointer;
-		z-index: 310;
-		display: none; /* 默认隐藏 */
+		bottom:3%;
+		background-color: #94C4A7;
+		color: white;
+		display: inline-block;
+		border-radius: 10px;
+		width:35%;
+		height:8%;
+		font-size: 24px;/*同上*/
+		font-weight: bold;
+		font-family: '宋体';
+		margin-left: auto;
+		margin-right: auto;
+		display: none;
 	}
     </style>
 </head>
@@ -156,54 +201,91 @@
 			<p>三星堆的手工业区孕育了古蜀国高度发达的青铜铸造技术、黄金冶炼加工技术、玉石器加工技术，还体现了独特的审美意识、宗教信仰和宇宙观。</p>
 		</div>
 		
-
-		<!-- 跳转按钮 -->
-		<button id="btnGoToPage" class="btn">查看更多</button>
 		
 	</div>
     <div class="word">
         请点击红色图标查看详细信息
     </div>
-
 	<div class="bottomword">
 		“有蜀侯蚕丛，其目纵，始称王。”——《华阳国志·蜀志》
 	</div>
-
 	
-	 <script>
-		// 获取四个标记点和对应的矩形框
-		const marker1 = document.getElementById('marker1');
-		const marker2 = document.getElementById('marker2');
-		const marker3 = document.getElementById('marker3');
-		const marker4 = document.getElementById('marker4');
+	<div class="endBtn">了解完毕</div>
+	<div class="endbox">
+	    <img src="img/history01.gif"/>
+	    <a href="https://www.example.com" class="nextBtn">进入下一界面</a>
+	</div>
+	
+<script>
+	 //定义计数器
+	 let clickedCount = 0;
 
-		const infobox1 = document.getElementById('infobox1');
-		const infobox2 = document.getElementById('infobox2');
-		const infobox3 = document.getElementById('infobox3');
-		const infobox4 = document.getElementById('infobox4');
-		
-		// 添加点击事件监听器
-		marker1.addEventListener('click', () => {
-			showInfobox(infobox1);
-		});
+	// 获取四个标记点和对应的矩形框
+	const marker1 = document.getElementById('marker1');
+	const marker2 = document.getElementById('marker2');
+	const marker3 = document.getElementById('marker3');
+	const marker4 = document.getElementById('marker4');
 
-		marker2.addEventListener('click', () => {
-			showInfobox(infobox2);
-		});
+	const infobox1 = document.getElementById('infobox1');
+	const infobox2 = document.getElementById('infobox2');
+	const infobox3 = document.getElementById('infobox3');
+	const infobox4 = document.getElementById('infobox4');
 
-		marker3.addEventListener('click', () => {
-			showInfobox(infobox3);
-		});
+	// 添加点击事件监听器
+	marker1.addEventListener('click', () => {
+		showInfobox(infobox1);
+		clickedCount++;
+		checkToShowEndBtn();
+	});
 
-		marker4.addEventListener('click', () => {
-			showInfobox(infobox4);
-		});
+	marker2.addEventListener('click', () => {
+		showInfobox(infobox2);
+		clickedCount++;
+		checkToShowEndBtn();
+	});
 
-		// 函数：显示矩形框
-		function showInfobox(box) {
-			box.style.display = 'block';
-		}
+	marker3.addEventListener('click', () => {
+		showInfobox(infobox3);
+		clickedCount++;
+		checkToShowEndBtn();
+	});
 
-	</script>
+	marker4.addEventListener('click', () => {
+		showInfobox(infobox4);
+		clickedCount++;
+		checkToShowEndBtn();
+	});
+
+	// 函数：显示矩形框
+	function showInfobox(box) {
+		box.style.display = 'block';
+	}
+	
+	// 检查是否显示 endBtn 按钮的函数
+	function checkToShowEndBtn() {
+	    if (clickedCount === 4) { // 当四个标记点都被点击时
+		const endBtn = document.querySelector('.endBtn');
+		endBtn.style.display = 'flex';
+	    }
+	}
+	
+	// 获取 endBtn 按钮
+	const endBtn = document.querySelector('.endBtn');
+	// 获取 nextBtn 按钮
+	const nextBtn = document.querySelector('.nextBtn');
+	
+	
+	// 添加 endBtn 的点击事件监听器
+	endBtn.addEventListener('click', () => {
+	const endbox = document.querySelector('.endbox');
+	endbox.style.display = 'block';
+	const nextBtn = document.querySelector('.nextBtn');
+	nextBtn.style.display = 'block';
+	});
+	// 添加 nextBtn 的点击事件监听器
+	nextBtn.addEventListener('click', () => {
+	    
+	});
+</script>
 </body>
 </html>
