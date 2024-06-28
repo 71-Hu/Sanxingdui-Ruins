@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>三星堆</title>
+		<style>
+			html{
+				font-family: "microsoft yahei,arial, helvetica, sans-serif";
+				font-size: 18px;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li,ul,ol{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+				color: #000;
+			}
+			.flex{
+				display: flex;
+			}
+			.auto{
+				margin: 0 auto;
+			}
+			.clearfix::after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			body{
+				background: #3C3D42 url("/images/1.png") no-repeat ;
+				background-size: cover;
+			}
+			.father1{
+				width: 1898px;
+				height: 900px;
+				background: #3C3D42 url(../images/1.png) no-repeat;
+				background-size: cover;
+			}
+			.top{
+				width: 1000px;
+				height: 70px;
+			}
+			.top div{
+				width: 120px;
+				height: 70px;
+				line-height: 70px;
+				font-size: 20px;
+				color: #fff;
+			}
+			.top div img{
+				width: 100px;
+				height: 100px;
+				vertical-align: middle;
+			}
+			.top ul{
+				width: 500px;
+				margin-left: 50px;
+				height: 70px;
+			}
+			.top ul li{
+				width: 100px;
+				height: 70px;
+				line-height: 70px;
+				text-align: center;
+			}
+			.top ul li a{
+				display: block;
+				color: #ccc;
+			}
+			.main1{
+				width: 1000px;
+				margin: 40px auto 0;
+				justify-content: center;
+			}
+			.main1 div{
+				width: 45%;
+			}
+			.main1 div p:nth-of-type(-n+2){
+				font-size: 40px;
+				color: #fff;
+			}
+			.main1 div p:nth-of-type(3){
+				margin: 15px 0;
+				color: #999;
+				font-size: 18px;
+			}
+			.main1 div p:nth-of-type(4){
+				color: #777;
+				margin-bottom: 30px;
+			}
+			.main1 div p:nth-of-type(5){
+				width: 100px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				background-color: #fff;
+				border-radius: 20px;
+			}
+			.main1 div p:nth-of-type(5) a{
+				display: block;
+			}
+			.main1 img{
+				width: 45%;
+				height: 300px;
+			}
+			</style>
+	</head>
+	<body>
+		<div class="father1 auto">
+			
+			<div class="top auto flex">
+				<div>
+					<img src="./images/logo.png" alt="">
+				</div>
+				<ul class="flex">
+					<li><a style="text-decoration: underline;" href="index.html">首页</a></li>
+					<li><a href="#">视频介绍</a></li>
+					<li><a href="#">文物预览</a></li>
+					<li><a href="#">查看地图</a></li>
+					<li><a href="#">了解更多</a></li>
+				</ul>
+			</div>
+			<div class="main1 auto flex">
+				<div>
+					<p>三星堆</p>
+					<p>古蜀文化</p>
+					<p>Sanxingdui ruins culture</p>
+					<p>三星堆古遗址位于四川省广汉市西北的鸭子河南岸，分布面积
+12平方千米，距今已有5000至3000年历史，是迄今在西南地区
+发现的范围最大、延续时间最长、文化内涵最丰富的古城、古
+国、古蜀文化遗址。三星堆遗址被称为20世纪人类最伟大的考
+古发现之一，昭示了长江流域与黄河流域一样，同属中华文明
+的母体，被誉为“长江文明之源”。</p>
+					<p><a href="#">了解更多</a></p>
+				</div>
+				<img src="./images/2.png" alt="">
+			</div>
+			</div>
+				<img src="./images/1.png">
+			</div>
+		</div>
+	</body>
+</html>
