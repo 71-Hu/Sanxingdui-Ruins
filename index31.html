@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>商金杖</title>
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      align-items: flex-start; /* 修改为flex-start */
+      justify-content: center;
+      background: linear-gradient(to right, #02090A, #725E36);
+    }
+    #container {
+      display: flex;
+      align-items: flex-start;
+    }
+    #left {
+      display: flex;
+      margin-right: 150px;
+      overflow-y: auto; /* 添加滚动条 */
+  	  margin-top: 50px; 
+    }
+    #left img {
+      max-width: 250%;
+      height: 600px;
+      width: 200%;
+    }
+    #right {
+      flex: 1;
+      height: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: auto; /* 添加滚动条 */
+	  margin-top: 50px;
+    }
+    #fullText {
+      margin-top: 16px;
+      width: 300px;
+      display: none;
+    }
+    #expandBtn {
+      margin-top: 16px;
+      cursor: pointer;
+      color: #fff; /* 设置按钮颜色为白色 */
+    }
+    .arrow {
+      font-size: 24px;
+    }
+    #text1, #text2 {
+      display: inline;
+      color: #B9B6AE;
+    }
+    p {
+      margin-top: 16px;
+      width: 600px;
+      text-indent: 2em; /* 首行缩进2个字符 */
+      text-align: justify; /* 两端对齐 */
+      text-justify: inter-ideograph; /* 中文对齐 */
+      text-indent: 2em 0; /* 首行缩进2个字符，其他行不缩进 */
+      text-indent: 2em -2em; /* 取消展开后最后一行最前面的缩进 */
+    }
+    #underline {
+      width: 600px;
+      height: 1px;
+      background-color: white; 
+      margin-top: 16px;
+    }
+  </style>
+  </style>
+</head>
+<body>
+  <div id="container">
+      <div id="left">
+        <img src="image/c489da58-b834-4dab-b56d-4802864169c8.png">
+      </div>
+      <div id="right">
+        <h1 style="font-size: 32px; font-weight: 300; line-height: 46px; text-align: left; color: #fff0bd; margin-top: 0; width: 300px;">商金杖</h1>
+        <p>
+          <span id="text1">三星堆祭祀坑出土的金杖是已出土的中国同时期金器中体量最大的一件。</span>
+          <span id="text2" style="display: none;">金杖系用金条捶打成金皮后，再包卷在木杖上；出土时木杖已炭化，仅存金皮，金皮内还残留有炭化的木渣。在金杖一端，有长约46厘米长的一段图案，图案共分三组：靠近端头的一组，合拢看为两个前后对称，头戴五齿巫冠，耳饰三角形耳坠的人头像，笑容可掬。另外两组图案相同，其上下方分别皆是两背相对的鸟与鱼，在鸟的颈部和鱼的头部叠压着一支箭状物。</span>
+        </p>
+        <div id="expandBtn" onclick="toggleFullText()">
+          展开 <span class="arrow">&#9660;</span>
+        </div>
+        <div id="underline"></div><br><br>
+		<span style="color: #B9B6AE;">所属年代</span><br>
+		<span style="color: #fff; font-weight: bold; font-size: 20px;">中国历史学年代,商(前1600~前1046)</span><br><br>
+		<span style="color: #B9B6AE;">藏品级别</span><br>
+		<span style="color: #fff; font-weight: bold; font-size: 20px;">一级</span><br><br>
+		<span style="color: #B9B6AE;">材料技术</span><br>
+		<span style="color: #fff; font-weight: bold; font-size: 20px;">铜器</span><br><br>
+		<span style="color: #B9B6AE;">外形尺寸</span><br>
+		<span style="color: #fff; font-weight: bold; font-size: 20px;">最大径140，高396，树枝残高359，底座直径93.5厘米</span><br><br>
+      </div>
+    </div>
+    <script>
+      function toggleFullText() {
+        var text1 = document.getElementById('text1');
+        var text2 = document.getElementById('text2');
+        var expandBtn = document.getElementById('expandBtn');
+        var underline = document.getElementById('underline');
+        if (text2.style.display === 'none') {
+          text2.style.display = 'inline';
+          expandBtn.innerHTML = '收起 <span class="arrow">&#9650;</span>';
+          underline.style.marginTop = '16px';
+        } else {
+          text2.style.display = 'none';
+          expandBtn.innerHTML = '展开 <span class="arrow">&#9660;</span>';
+          underline.style.marginTop = '0';
+        }
+      }
+    </script>
+  </body>
+</html>
