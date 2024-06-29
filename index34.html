@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商戴金面罩青铜人头像</title>
+	<style>
+	    body {
+	      display: flex;
+	      margin: 0;
+	      align-items: flex-start; /* 修改为flex-start */
+	      justify-content: center;
+	      background: linear-gradient(to right, #02090A, #725E36);
+	    }
+	    #container {
+	      display: flex;
+	      align-items: flex-start;
+	    }
+	    #left {
+	      display: flex;
+	      margin-right: 150px;
+	      overflow-y: auto; /* 添加滚动条 */
+		  margin-top: 50px; 
+	    }
+	    #left img {
+	      max-width: 250%;
+	      height: 600px;
+	      width: 200%;
+	    }
+	    #right {
+	      flex: 1;
+	      height: 100%;
+	      text-align: center;
+	      display: flex;
+	      flex-direction: column;
+	      align-items: flex-start;
+	      overflow-y: auto; /* 添加滚动条 */
+		  margin-top: 50px;
+	    }
+	    #fullText {
+	      margin-top: 16px;
+	      width: 300px;
+	      display: none;
+	    }
+	    #expandBtn {
+	      margin-top: 16px;
+	      cursor: pointer;
+	      color: #fff; /* 设置按钮颜色为白色 */
+	    }
+	    .arrow {
+	      font-size: 24px;
+	    }
+	    #text1, #text2 {
+	      display: inline;
+	      color: #B9B6AE;
+	    }
+	    p {
+	      margin-top: 16px;
+	      width: 600px;
+	      text-indent: 2em; /* 首行缩进2个字符 */
+	      text-align: justify; /* 两端对齐 */
+	      text-justify: inter-ideograph; /* 中文对齐 */
+	      text-indent: 2em 0; /* 首行缩进2个字符，其他行不缩进 */
+	      text-indent: 2em -2em; /* 取消展开后最后一行最前面的缩进 */
+	    }
+	    #underline {
+	      width: 600px;
+	      height: 1px;
+	      background-color: white; 
+	      margin-top: 16px;
+	    }
+	  </style>
+	</head>
+	<body>
+	  <div id="container">
+	      <div id="left">
+	        <img src="image/31cd2b1e-67ac-48bd-b9d0-bd45f487900c.png" >
+	      </div>
+	      <div id="right">
+	        <h1 style="font-size: 32px; font-weight: 300; line-height: 46px; text-align: left; color: #fff0bd; margin-top: 0; width: 300px;">商戴金面罩青铜人头像</h1>
+	        <p>
+	          <span id="text1">铜人头像为平顶，头发向后梳理，发辫垂于脑后，发辫上端用宽带套束，具有浓郁的地方民族发式</span>
+	          <span id="text2" style="display: none;">风格。金面罩用金皮捶拓而成，大小、造型和铜头像面部特征相同，眼眉部镂空，制作颇为精致，给人以权威与神圣之感。</span>
+	        </p>
+	        <div id="expandBtn" onclick="toggleFullText()">
+	          展开 <span class="arrow">&#9660;</span>
+	        </div>
+	        <div id="underline"></div><br><br>
+	        <span style="color: #B9B6AE;">所属年代</span><br>
+	        <span style="color: #fff; font-weight: bold; font-size: 20px;">中国历史学年代,商(前1600~前1046)</span><br><br>
+	        <span style="color: #B9B6AE;">藏品级别</span><br>
+	        <span style="color: #fff; font-weight: bold; font-size: 20px;">一级</span><br><br>
+	        <span style="color: #B9B6AE;">材料技术</span><br>
+	        <span style="color: #fff; font-weight: bold; font-size: 20px;">雕塑、造像</span><br><br>
+	        <span style="color: #B9B6AE;">外形尺寸</span><br>
+	        <span style="color: #fff; font-weight: bold; font-size: 20px;">头纵径14.5，横径12.6，高42.5，宽20.5厘米</span><br><br>
+	      </div>
+	    </div>
+	    <script>
+	      function toggleFullText() {
+	        var text1 = document.getElementById('text1');
+	        var text2 = document.getElementById('text2');
+	        var expandBtn = document.getElementById('expandBtn');
+	        var underline = document.getElementById('underline');
+	        if (text2.style.display === 'none') {
+	          text2.style.display = 'inline';
+	          expandBtn.innerHTML = '收起 <span class="arrow">&#9650;</span>';
+	          underline.style.marginTop = '16px';
+	        } else {
+	          text2.style.display = 'none';
+	          expandBtn.innerHTML = '展开 <span class="arrow">&#9660;</span>';
+	          underline.style.marginTop = '0';
+	        }
+	      }
+	    </script>
+	  </body>
+	</html>
