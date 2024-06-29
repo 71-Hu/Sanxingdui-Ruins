@@ -1,217 +1,221 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" /> 
+    <meta charset="utf-8" />
     <title>古三星堆地图介绍</title>
-    <style> 
-	:root {  
-		--oldmap-width: 70vw; /* 使用CSS变量来定义 oldmap 的宽度 */  
-	} 
+    <style>
+		:root {  
+			--oldmap-width: 70vw; /* 使用 CSS 变量来定义 oldmap 的宽度 */  
+		    } 
         html, body {
-		height: 100%; 
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-		background: linear-gradient(to right, #227948, black);
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+			background: linear-gradient(to right, #227948, black);
         }
         body {
-		background-image: url('img/bg.jpg');
-		background-size: cover; /* 设置背景图片宽度为100%，高度自动 */
-		background-repeat: no-repeat;
-		background-position: center; 
-		background-blend-mode: multiply;
-		background-color: rgba(0, 0, 0, 0.4);
+            background-image: url('img/bg.jpg');
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center; 
+			background-blend-mode: multiply;
+			background-color: rgba(0, 0, 0, 0.4);
         }
+		
+		
         .oldmap {
-		width: var(--oldmap-width);
-		background-image: url('img/oldmap.jpg');
-		background-size: 80% auto; /* 设置旧地图背景图片宽度为75%，高度自动 */
-		background-position:center; /* 设置旧地图背景图片在右侧居中显示 */
-		background-repeat: no-repeat;
-		height: 100vh; /* 使用视口高度 */
-		width: 100%;
-		position: relative;
-		top: 0;
-		left: 0;		
+			width: var(--oldmap-width);
+            background-image: url('img/oldmap.jpg');
+            background-size: 80% auto; 
+            background-position:center; 
+			background-repeat: no-repeat;
+            height: 100vh; /* 使用视口高度 */
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
         }
         .word {
             position: absolute;
             top: 6.6%;
             left: 7.8%;
             color: white;
-            font-size: 35px;
+            font-size: 64px;
             text-align: center;
             z-index: 10;
             font-weight: bold;
             font-family: '宋体';
         }
-	.bottomword{
-		position: absolute;
-		bottom: 7%;
-		left: 50vw; /* 将元素向左移动到屏幕中心 */
-		ransform: translateX(-50%); 
-		color: white;
-		font-size: 24px;
-		text-align: left;
-		z-index: 10;
-		font-weight: bold;
-		font-family: '宋体';
-		text-align: center;
-		font-style: italic;
-	}
-	 .marker {
-		position: absolute;
-		width: 2%; /* 标记点的宽度，根据实际图片大小调整 */
-		height: auto; /* 标记点的高度，根据实际图片大小调整 */
-		z-index: 100;
-		cursor: pointer;
-	}
-	/* 为四个标记点添加不同的类或数据属性 */
-	#marker1 {
-		top: 47%;
-		left: 27.9%
-	}
-	#marker2 {
-		top: 28.5%; left: 56.5%;
-	}
-	#marker3 {
-		top: 49.7%; left: 61%;
-	}
-	#marker4 {
-		top: 29.7%; left: 74.2%;
-	}
-	
-	/* 矩形框样式 */
-	.infobox {
-		position: absolute;
-		background-color: #E1D1AE;
-		border: 3px solid black;
-		border-radius: 20px;
-		padding: 8px;
-		margin:0;
-		width: 16%;
-		display: none; /* 默认隐藏 */
-		z-index: 200;
-		color:black;
-		font-size: 14px;
-		flex-wrap: wrap;
-		text-indent: 1em;
-	}
-	#infobox1 {
-		top: 40%;   left: 10%;
-	}
-	#infobox2 {
-		top: 15.5%; left: 38%;
-	}
-	#infobox3 {
-		top: 47.7%; left: 42%;
-	}
-	#infobox4 {
-		top: 29.7%; left: 77.5%;
-	}
-
-	/* 按钮样式 */
-	.endBtn {
-	  position: fixed;
-	  top: 6.6%; 
-	  left: 50%;
-	  transform: translate(-50%, 0);
-	  width:15%;
-	  height:9%;
-	  cursor: pointer;
-	  border: 3px solid black;
-	  border-radius: 20px;
-	  background-color: aliceblue;
-	  
-	  font-weight: bold;
-	  font-size: 24px;/* 和底部字体相同 */
-	  display: none; 
-	  justify-content: center; /* 水平居中文本 */
-	  align-items: center;
-	  color:#62470A;
-	  background-color: #EFD8A2;
-	}
-	/* 结束对话框样式 */
-	.endbox {
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 305;
-		display: none;
-		background-color: #1D3426;
-		border: 3px solid black;
-		border-radius: 20px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		text-align: center;
-		width:40%;
-		height:80%;
-	}
-	.endbox img {
-		height: 80%;
-		width: auto;
-		display:block;
-		margin:4% auto;
-	}
-	/* 跳转按钮样式 */
-	.nextBtn {
-		cursor: pointer;
-		bottom:3%;
-		background-color: #94C4A7;
-		color: white;
-		display: inline-block;
-		border-radius: 10px;
-		border: 3px solid black;
-		width:35%;
-		height:8%;
-		font-size: 24px;/*同上*/
-		font-weight: bold;
-		font-family: '宋体';
-		margin-left: auto;
-		margin-right: auto;
-		display: none;
-	}
-	/*导航栏样式*/
-	.top {
-		font-size: 22px;
-		width: 80%;
-		position:absolute;
-		margin:0;
-		z-index: 500;
-		top:0;
-	}		
-	.top div, .top ul {
-	    margin: 0;
-	    padding: 0;
-	}
-	.top ul {
-		width: 400px;
-		margin-left: 50px;
-		height: 60px;
-		list-style: none;
-		display: flex;
-		cursor: pointer;
-	}
-	.top ul li {
-	    width: 100px;
-	    height: 60px;
-	    line-height: 60px;
-	    text-align: center;
-	}
-	.top ul li a {
-		color: #ccc;
-		text-decoration: none;
-	}
+		.bottomword{
+			position: absolute;
+			bottom: 7%;
+			left: 50vw; /* 将元素向左移动到屏幕中心 */
+			ransform: translateX(-50%); 
+			color: white;
+			font-size: 50px;
+			text-align: left;
+			z-index: 10;
+			font-weight: bold;
+			font-family: '宋体';
+			text-align: center;
+			font-style: italic;
+		}
+		 .marker {
+			position: absolute;
+			width: 2%; /* 标记点的宽度，根据实际图片大小调整 */
+			height: auto; /* 标记点的高度，根据实际图片大小调整 */
+			z-index: 100;
+			cursor: pointer;
+		}
+		/* 为四个标记点添加不同的类或数据属性 */
+		#marker1 {
+			top: 47%;
+			left: 27.9%
+		}
+		#marker2 {
+			top: 28.5%; left: 56.5%;
+		}
+		#marker3 {
+			top: 49.7%; left: 61%;
+		}
+		#marker4 {
+			top: 29.7%; left: 74.2%;
+		}
+		
+		/* 矩形框样式 */
+		.infobox {
+			position: absolute;
+			background-color: #E1D1AE;
+			border: 3px solid black;
+			border-radius: 20px;
+			padding: 8px;
+			margin:0;
+			width: 16%;
+			display: none; /* 默认隐藏 */
+			z-index: 200;
+			color:black;
+			font-size: 28px;
+			flex-wrap: wrap;
+			text-indent: 1em;
+		}
+		#infobox1 {
+			top: 40%;   left: 10.5%;
+		}
+		#infobox2 {
+			top: 15.5%; left: 39%;
+		}
+		#infobox3 {
+			top: 47.7%; left: 42%;
+		}
+		#infobox4 {
+			top: 29.7%; left: 77.5%;
+		}
+		
+		/* 按钮样式 */
+		.endBtn {
+		  position: fixed;
+		  top: 6.6%; 
+		  left: 50%;
+		  transform: translate(-50%, 0);
+		  width:15%;
+		  height:9%;
+		  cursor: pointer;
+		  border: 3px solid black;
+		  border-radius: 20px;
+		  background-color: aliceblue;
+		  
+		  font-weight: bold;
+		  font-size: 50px;/* 和底部字体相同 */
+		  display: none; 
+		  justify-content: center; /* 水平居中文本 */
+		  align-items: center;
+		  color:#62470A;
+		  background-color: #EFD8A2;
+		}
+		/* 结束对话框样式 */
+		.endbox {
+		    position: fixed;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    z-index: 305;
+		    display: none;
+		    background-color: #1D3426;
+		    border: 3px solid black;
+		    border-radius: 20px;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    text-align: center;
+			width:40%;
+			height:80%;
+		}
+		.endbox img {
+		    height: 80%;
+		    width: auto;
+			display:block;
+			margin:4% auto;
+		}
+		/* 跳转按钮样式 */
+		.nextBtn {
+		    cursor: pointer;
+			bottom:3%;
+		    background-color: #94C4A7;
+		    color: white;
+		    display: inline-block;
+			border: 3px solid black;
+		    border-radius: 10px;
+			width:35%;
+			height:8%;
+			font-size: 50px;/*同上*/
+			font-weight: bold;
+			font-family: '宋体';
+			margin-left: auto;
+			margin-right: auto;
+			display: none;
+		}
+		
+		/*导航栏样式*/
+		.top {
+			font-size: 22px;
+		    width: 80%;
+			position:absolute;
+			margin:0;
+			z-index: 500;
+			top:0;
+		}		
+		.top div, .top ul {
+		    margin: 0;
+		    padding: 0;
+		}
+		.top ul {
+		    width: 500px;
+		    margin-left: 50px;
+		    height: 60px;
+		    list-style: none;
+		    display: flex;
+			cursor: pointer;
+		}
+		.top ul li {
+		    width: 100px;
+		    height: 60px;
+		    line-height: 60px;
+		    text-align: center;
+		}
+		.top ul li a {
+		    color: #ccc;
+			text-decoration: none;
+		}
     </style>
 </head>
 <body>
 	<div class="top">
-	    <ul>
-	        <li><a href="https://71-hu.github.io/Sanxingdui-Ruins/">首页</a></li>
-	        <li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index20">查看地图</a></li>
-	        <li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index21">视频介绍</a></li>
-	        <li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index30">文物预览</a></li>
-	    </ul>
+		<ul>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/">首页</a></li>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index20">查看地图</a></li>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index21">视频介绍</a></li>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index30">文物预览</a></li>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index36">趣味拼图</a></li>
+		</ul>
 	</div>
     <div class="oldmap">
 		<!-- 四个标记点 -->
@@ -255,74 +259,77 @@
 	    <img src="img/history01.gif"/>
 	    <a href="https://www.example.com" class="nextBtn">进入下一界面</a>
 	</div>
-	
-<script>
-	 //定义计数器
-	 let clickedCount = 0;
 
-	// 获取四个标记点和对应的矩形框
-	const marker1 = document.getElementById('marker1');
-	const marker2 = document.getElementById('marker2');
-	const marker3 = document.getElementById('marker3');
-	const marker4 = document.getElementById('marker4');
+	<script>
+		 //定义计数器
+		 let clickedCount = 0;
 
-	const infobox1 = document.getElementById('infobox1');
-	const infobox2 = document.getElementById('infobox2');
-	const infobox3 = document.getElementById('infobox3');
-	const infobox4 = document.getElementById('infobox4');
+		// 获取四个标记点和对应的矩形框
+		const marker1 = document.getElementById('marker1');
+		const marker2 = document.getElementById('marker2');
+		const marker3 = document.getElementById('marker3');
+		const marker4 = document.getElementById('marker4');
 
-	// 添加点击事件监听器
-	marker1.addEventListener('click', () => {
-		showInfobox(infobox1);
-		clickedCount++;
-		checkToShowEndBtn();
-	});
+		const infobox1 = document.getElementById('infobox1');
+		const infobox2 = document.getElementById('infobox2');
+		const infobox3 = document.getElementById('infobox3');
+		const infobox4 = document.getElementById('infobox4');
 
-	marker2.addEventListener('click', () => {
-		showInfobox(infobox2);
-		clickedCount++;
-		checkToShowEndBtn();
-	});
+		// 添加点击事件监听器
+		marker1.addEventListener('click', () => {
+			showInfobox(infobox1);
+			clickedCount++;
+			checkToShowEndBtn();
+		});
 
-	marker3.addEventListener('click', () => {
-		showInfobox(infobox3);
-		clickedCount++;
-		checkToShowEndBtn();
-	});
+		marker2.addEventListener('click', () => {
+			showInfobox(infobox2);
+			clickedCount++;
+			checkToShowEndBtn();
+		});
 
-	marker4.addEventListener('click', () => {
-		showInfobox(infobox4);
-		clickedCount++;
-		checkToShowEndBtn();
-	});
+		marker3.addEventListener('click', () => {
+			showInfobox(infobox3);
+			clickedCount++;
+			checkToShowEndBtn();
+		});
 
-	// 函数：显示矩形框
-	function showInfobox(box) {
-		box.style.display = 'block';
-	}
-	
-	// 检查是否显示 endBtn 按钮的函数
-	function checkToShowEndBtn() {
-	    if (clickedCount === 4) { // 当四个标记点都被点击时
+		marker4.addEventListener('click', () => {
+			showInfobox(infobox4);
+			clickedCount++;
+			checkToShowEndBtn();
+		});
+
+		// 函数：显示矩形框
+		function showInfobox(box) {
+			box.style.display = 'block';
+		}
+		
+		// 检查是否显示 endBtn 按钮的函数
+		function checkToShowEndBtn() {
+		    if (clickedCount === 4) { // 当四个标记点都被点击时
+		        const endBtn = document.querySelector('.endBtn');
+		        endBtn.style.display = 'flex';
+		    }
+		}
+		
+		// 获取 endBtn 按钮
 		const endBtn = document.querySelector('.endBtn');
-		endBtn.style.display = 'flex';
-	    }
-	}
-	
-	// 获取 endBtn 按钮
-	const endBtn = document.querySelector('.endBtn');
-	// 获取 nextBtn 按钮
-	const nextBtn = document.querySelector('.nextBtn');
-	
-	
-	// 添加 endBtn 的点击事件监听器
-	endBtn.addEventListener('click', () => {
-	const endbox = document.querySelector('.endbox');
-	endbox.style.display = 'block';
-	const nextBtn = document.querySelector('.nextBtn');
-	nextBtn.style.display = 'block';
-	});
-
-</script>
+		// 获取 nextBtn 按钮
+		const nextBtn = document.querySelector('.nextBtn');
+		
+		
+		// 添加 endBtn 的点击事件监听器
+		endBtn.addEventListener('click', () => {
+		    const endbox = document.querySelector('.endbox');
+		    endbox.style.display = 'block';
+			const nextBtn = document.querySelector('.nextBtn');
+			nextBtn.style.display = 'block';
+		});
+		// 添加 nextBtn 的点击事件监听器
+		nextBtn.addEventListener('click', () => {
+		    
+		});
+	</script>
 </body>
 </html>
