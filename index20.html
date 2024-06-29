@@ -31,7 +31,7 @@
 		height: 100vh; /* 使用视口高度 */
 		width: 100%;
 		position: relative;
-		top: -10%;
+		top: 0;
 		left: 0;		
         }
         .word {
@@ -170,10 +170,13 @@
 		margin-right: auto;
 		display: none;
 	}
-	/*导航栏样式*/
+		/*导航栏样式*/
 		.top {
+			font-size: 22px;
 		    width: 80%;
-			position:relative;
+			position:absolute;
+			margin:0;
+			z-index: 500;
 		}		
 		.top div, .top ul {
 		    margin: 0;
@@ -185,6 +188,7 @@
 		    height: 70px;
 		    list-style: none;
 		    display: flex;
+			cursor: pointer;
 		}
 		.top ul li {
 		    width: 100px;
@@ -193,9 +197,37 @@
 		    text-align: center;
 		}
 		.top ul li a {
-		    display: flex;
 		    color: #ccc;
-		    text-decoration: none;
+			text-decoration: none;
+		}		/*导航栏样式*/
+		.top {
+			font-size: 22px;
+		    width: 80%;
+			position:absolute;
+			margin:0;
+			z-index: 500;
+		}		
+		.top div, .top ul {
+		    margin: 0;
+		    padding: 0;
+		}
+		.top ul {
+		    width: 500px;
+		    margin-left: 50px;
+		    height: 70px;
+		    list-style: none;
+		    display: flex;
+			cursor: pointer;
+		}
+		.top ul li {
+		    width: 100px;
+		    height: 70px;
+		    line-height: 70px;
+		    text-align: center;
+		}
+		.top ul li a {
+		    color: #ccc;
+			text-decoration: none;
 		}
     </style>
 </head>
