@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>文物预览界面</title>
-<style> 
+<style>
     body {  
         background-color: #02090A;  
         display: flex;    
@@ -15,14 +15,13 @@
         margin: 0;    
         padding: 20px;    
         box-sizing: border-box;    
-		overflow-y: scroll;
     }
 	.artifact-caption {
 	    font-size: 3em;
 	    color: white;
 	    text-align: center;
 	    position: absolute;
-	    bottom: -50px; /* 相对于圆形图片的底部位置 */
+	    bottom: 60px; /* 相对于圆形图片的底部位置 */
 	    left: 50%; /* 居中 */
 	    transform: translateX(-50%); /* 水平居中 */
 	    font-family: 华文行楷; /* 字体 */
@@ -93,21 +92,62 @@
 	    color: #FFF0BD;
 	    font-size: 1em;
 	    border: 2px solid yellow;
-	    padding: 5px 10px; /* 可以根据需要调整内边距 */
+	    padding: 5px 10px; 
 	    position: absolute;
-	    bottom: -100px;
+	    bottom: -3px;
 	    left: 50%;
 	    transform: translateX(-50%);
 	    font-style: italic;
 	    font-size: 1.5em;
 	}
-
-
+	/*导航栏样式*/
+	.top {
+	  font-size: 22px;
+	  width: 80%;
+	  position: absolute;
+	  margin: 0;
+	  z-index: 500;
+	  top: 20px; /* 距离顶部20px */
+	  left: 20px; /* 距离左侧20px */
+	}
+	
+	.top div,
+	.top ul {
+	  margin: 0;
+	  padding: 0;
+	}
+	
+	.top ul {
+	  width: 400px;
+	  height: 60px;
+	  list-style: none;
+	  display: flex;
+	  cursor: pointer;
+	}
+	
+	.top ul li {
+	  width: 100px;
+	  height: 60px;
+	  line-height: 60px;
+	  text-align: center;
+	}
+	
+	.top ul li a {
+	  color: #ccc;
+	  text-decoration: none;
+	}
 
 </style>
 </head>
 <body>
-
+<div class="top auto flex">
+		<ul class="flex">
+		<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index">首页</a></li>
+		<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index20">查看地图</a></li>
+		<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index21">视频介绍</a></li>
+		<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index30">文物预览</a></li>
+		</ul>
+	</div>
 <div class="title">必看文物</div>
 
 <div class="arrow left" onclick="rotateLeft()">❮</div>
@@ -116,12 +156,14 @@
 <div class="artifact-container">    
 		<img src="image/14e780ae-5df6-4c94-a544-ebd611f4e7fc.png" alt="文物" class="artifact-image">
 		<div class="blue-circle"></div> <!-- 添加蓝色圆形图片 -->
-</div>    
+</div> 
+
+
 <div class="artifact-caption">商金杖</div> <!-- 移动文字说明到图片下方 -->
 <a href="index31.html" class="details-button" >查看详情</a>
 
 <script>
-    var images = ['image/14e780ae-5df6-4c94-a544-ebd611f4e7fc.png', 'image/635257d8-ccf2-482f-879f-4ba01f6447d8.png', 'image/bd7cee15-6fac-42eb-a43f-6e35406e772b.png', 'image/af678ee0-e038-4202-b20c-3cbcbbb6cc3f.png', 'image/98eb5790-0261-4fce-bdad-de43f485b331.png'];
+    var images = ['image/14e780ae-5df6-4c94-a544-ebd611f4e7fc.png', 'image/635257d8-ccf2-482f-879f-4ba01f6447d8.png', 'image/705ddb4a-d6a8-486c-9c6c-526acb955623.png', 'image/af678ee0-e038-4202-b20c-3cbcbbb6cc3f.png', 'image/98eb5790-0261-4fce-bdad-de43f485b331.png'];
 	var detailsLinks = ['index31.html', 'index32.html', 'index33.html', 'index34.html', 'index35.html']; // 存储详情页面的链接
     var currentIndex = 0;
     var artifactImage = document.querySelector('.artifact-image');
@@ -137,6 +179,7 @@
         currentIndex = (currentIndex + 1) % images.length;
         updateImage();
     }
+	
 
     function updateImage() {
         artifactImage.style.opacity = 0; // 先将图片透明度设为0
@@ -144,6 +187,7 @@
             artifactImage.src = images[currentIndex]; // 然后切换图片
             artifactImage.style.opacity = 1; // 最后将图片透明度设为1
 			artifactCaption.textContent = captions[currentIndex]; // 更新文字说明
+			updateImageStyle();
         }, 500); // 设置延迟，与过渡效果时间一致
 	 // 创建蓝色圆形图片
 	var blueCircle = document.querySelector('.blue-circle');
@@ -165,11 +209,11 @@
 	             } else if (currentIndex === 2) {
 	                 artifactImage.style.maxWidth = '480px';
 	                 artifactImage.style.maxHeight = 'auto';
-	                 artifactImage.style.marginTop = '100px';
+	                 artifactImage.style.marginTop = '70px';
 				} else if (currentIndex === 3) {
 				    artifactImage.style.maxWidth = '400px';
 				    artifactImage.style.maxHeight = 'auto';
-				    artifactImage.style.marginTop = '10px';
+				    artifactImage.style.marginTop = '70px';
 	             } else {
 	                 artifactImage.style.maxWidth = '500px';
 	                 artifactImage.style.maxHeight = 'auto';
@@ -179,7 +223,30 @@
 	
 	document.querySelector('.artifact-container').appendChild(newBlueCircle);
     }
+	// 保存当前索引到浏览器历史记录
+	function saveCurrentIndex() {
+	    sessionStorage.setItem('currentIndex', currentIndex);
+	}
 	
+	// 从浏览器历史记录恢复当前索引
+	function restoreCurrentIndex() {
+	    var savedIndex = sessionStorage.getItem('currentIndex');
+	    if (savedIndex !== null) {
+	        currentIndex = parseInt(savedIndex, 10);
+	        updateImage();
+	    }
+	}
+	
+	// 绑定点击事件到详情按钮
+	detailsButton.addEventListener('click', function() {
+	    saveCurrentIndex(); // 点击时保存当前索引
+	});
+	
+	// 监听浏览器的popstate事件，这会在用户点击浏览器的后退按钮时触发
+	window.addEventListener('popstate', restoreCurrentIndex);
+	
+	// 初始页面加载时，检查是否有保存的索引并恢复
+	document.addEventListener('DOMContentLoaded', restoreCurrentIndex);
 </script>
 
 </body>    
