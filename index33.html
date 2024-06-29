@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商青铜立人像</title>
+	<style>
+	    body {
+	      display: flex;
+	      margin: 0;
+	      align-items: flex-start; /* 修改为flex-start */
+	      justify-content: center;
+	      background: linear-gradient(to right, #02090A, #725E36);
+	    }
+	    #container {
+	      display: flex;
+	      align-items: flex-start;
+	    }
+	    #left {
+	      display: flex;
+	      margin-right: 150px;
+	      overflow-y: auto; /* 添加滚动条 */
+		  margin-top: 50px; 
+	    }
+	    #left img {
+	      max-width: 250%;
+	      height: 600px;
+	      width: 200%;
+	    }
+	    #right {
+	      flex: 1;
+	      height: 100%;
+	      text-align: center;
+	      display: flex;
+	      flex-direction: column;
+	      align-items: flex-start;
+	      overflow-y: auto; /* 添加滚动条 */
+		  margin-top: 50px;
+	    }
+	    #fullText {
+	      margin-top: 16px;
+	      width: 300px;
+	      display: none;
+	    }
+	    #expandBtn {
+	      margin-top: 16px;
+	      cursor: pointer;
+	      color: #fff; /* 设置按钮颜色为白色 */
+	    }
+	    .arrow {
+	      font-size: 24px;
+	    }
+	    #text1, #text2 {
+	      display: inline;
+	      color: #B9B6AE;
+	    }
+	    p {
+	      margin-top: 16px;
+	      width: 600px;
+	      text-indent: 2em; /* 首行缩进2个字符 */
+	      text-align: justify; /* 两端对齐 */
+	      text-justify: inter-ideograph; /* 中文对齐 */
+	      text-indent: 2em 0; /* 首行缩进2个字符，其他行不缩进 */
+	      text-indent: 2em -2em; /* 取消展开后最后一行最前面的缩进 */
+	    }
+	    #underline {
+	      width: 600px;
+	      height: 1px;
+	      background-color: white; 
+	      margin-top: 16px;
+	    }
+	  </style>
+	</head>
+	<body>
+	  <div id="container">
+	      <div id="left">
+	        <img src="image/705ddb4a-d6a8-486c-9c6c-526acb955623.png"" >
+	      </div>
+	      <div id="right">
+	        <h1 style="font-size: 32px; font-weight: 300; line-height: 46px; text-align: left; color: #fff0bd; margin-top: 0; width: 300px;">商青铜立人像</h1>
+	        <p>
+	          <span id="text1">在三星堆众多的青铜雕像群中，足以领衔群像的最高统治者非大立人像莫属，——不论是从服饰、形像还是体量等各方面看，这尊大立人像都堪称它们的“领袖”人物。以往殷墟出土的玉石铜人</span>
+	          <span id="text2" style="display: none;">像与之相比，真可谓是“小巫”见“大巫”了。就全世界范围来看，三星堆青铜大立人也是同时期体量最大的青铜人物雕像。 雕像系采用分段浇铸法嵌铸而成，身体中空，分人像和底座两部分。人像头戴高冠，身穿窄袖与半臂式共三层衣，衣上纹饰繁复精丽，以龙纹为主，辅配鸟纹、虫纹和目纹等，身佩方格纹带饰。其双手手型环握中空，两臂略呈环抱状构势于胸前。脚戴足镯，赤足站立于方形怪兽座上。其整体形象典重庄严，似乎表现的是一个具有通天异禀、神威赫赫的大人物正在作法。其所站立的方台，即可理解为其作法的道场——神坛或神山。</span>
+	        </p>
+	        <div id="expandBtn" onclick="toggleFullText()">
+	          展开 <span class="arrow">&#9660;</span>
+	        </div>
+	        <div id="underline"></div><br><br>
+	        <span style="color: #B9B6AE;">所属年代</span><br>
+	        <span style="color: #fff; font-weight: bold; font-size: 20px;">中国历史学年代,商(前1600~前1046)</span><br><br>
+	        <span style="color: #B9B6AE;">藏品级别</span><br>
+	        <span style="color: #fff; font-weight: bold; font-size: 20px;">一级</span><br><br>
+	        <span style="color: #B9B6AE;">材料技术</span><br>
+	        <span style="color: #fff; font-weight: bold; font-size: 20px;">雕塑、造像</span><br><br>
+	        <span style="color: #B9B6AE;">外形尺寸</span><br>
+	        <span style="color: #fff; font-weight: bold; font-size: 20px;">高260.8cm，人像高180cm，底座横宽48.5cm，纵长46.7cm，高35cm</span><br><br>
+	      </div>
+	    </div>
+	    <script>
+	      function toggleFullText() {
+	        var text1 = document.getElementById('text1');
+	        var text2 = document.getElementById('text2');
+	        var expandBtn = document.getElementById('expandBtn');
+	        var underline = document.getElementById('underline');
+	        if (text2.style.display === 'none') {
+	          text2.style.display = 'inline';
+	          expandBtn.innerHTML = '收起 <span class="arrow">&#9650;</span>';
+	          underline.style.marginTop = '16px';
+	        } else {
+	          text2.style.display = 'none';
+	          expandBtn.innerHTML = '展开 <span class="arrow">&#9660;</span>';
+	          underline.style.marginTop = '0';
+	        }
+	      }
+	    </script>
+	  </body>
+	</html>
