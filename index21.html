@@ -4,32 +4,73 @@
 		<meta charset="utf-8">
 		<title>三星堆介绍视频</title>
 		<style>
-		html{
-			background-image: url('img/bg.jpg');
-             		background-size:  cover; 
-		}
+			html{
+				background-image: url('img/bg.jpg');
+				background-size:  cover; 
+			}
+			/*导航栏样式*/
+			.top {
+				font-size: 22px;
+			    width: 80%;
+				position:absolute;
+				margin:0;
+				z-index: 500;
+			}		
+			.top div, .top ul {
+			    margin: 0;
+			    padding: 0;
+			}
+			.top ul {
+			    width: 400px;
+			    margin-left: 50px;
+			    height: 60px;
+			    list-style: none;
+			    display: flex;
+				cursor: pointer;
+			}
+			.top ul li {
+			    width: 100px;
+			    height: 60px;
+			    line-height: 60px;
+			    text-align: center;
+			}
+			.top ul li a {
+			    color: #ccc;
+				text-decoration: none;
+			}
 		/* 设置视频容器样式 */
 		  .video-container {
 		    width:75%; /* 您可以根据需要设置视频的宽度 */
-		    margin: 20px auto; /* 居中显示 */
+		    margin: 4% auto; /* 居中显示 */
 			z-index: 1;
+			display: flex;
 		  }
 		  video {
 		    width: 100%; /* 视频宽度占容器的100% */
 		    height: auto; /* 高度自适应 */
 		  }
-		  
+		  /*跳转按钮*/
 		  .nextBtn{
+			  position: absolute;
 			  width:12%;
 			  height:auto;
 			  bottom:2%;
-			  padding-left: 82%;
+			  padding-left: 87%;
 			  z-index: 100;
 		  }
+		  
 		</style>
 		
 	</head>
 	<body>
+		<div class="top">
+			<ul>
+				<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/">首页</a></li>
+				<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index20">查看地图</a></li>
+				<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index21">视频介绍</a></li>
+				<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index30">文物预览</a></li>
+			</ul>
+		</div>
 		<div class="video-container">
 		  <video controls>
 		    <source src="img/introduceVideo.mp4" type="video/mp4">
@@ -38,7 +79,7 @@
 		<a href=="https://www.example.com" target="_blank">
 			<img data-v-1288aa91="" class="nextBtn" 
 			src="https://industry.map.qq.com/cloud/sanxingdui/pc/home/screen/go.png?imageMogr2/format/webp/ignore-error/1" 
-			lazy="true" style="object-fit: cover;"> 
+			lazy="true" style="object-fit: cover;">
 		</a>
 	</body>
 	
