@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>三星堆现状介绍</title>
+		<style>
+			html{
+				background-image: url('img/bg.jpg');
+				background-size: cover; 
+				background-blend-mode: multiply;
+				background-color: rgba(0, 0, 0, 0.4);
+				z-index: 0;
+			}
+			body{
+				height: 100vh;
+				margin-top: 0;
+			}
+			/*地图样式*/
+			.newmap {
+				width: var(--oldmap-width);
+			    background-image: url('img/newMap.jpg');
+			    background-size: auto 85%; 
+			    background-position:center; 
+				background-repeat: no-repeat;
+			    height: 100vh; /* 使用视口高度 */
+			    width: 100%;
+			    position: relative;
+			    top: 0;
+			    left: 0;
+			}
+			/*导航栏样式*/
+			.top {
+				font-size: 22px;
+			    width: 80%;
+				position:absolute;
+				margin:0;
+				z-index: 500;
+				top:0;
+			}		
+			.top div, .top ul {
+			    margin: 0;
+			    padding: 0;
+			}
+			.top ul {
+			    width: 500px;
+			    margin-left: 50px;
+			    height: 60px;
+			    list-style: none;
+			    display: flex;
+				cursor: pointer;
+			}
+			.top ul li {
+			    width: 100px;
+			    height: 60px;
+			    line-height: 60px;
+			    text-align: center;
+			}
+			.top ul li a {
+			    color: #ccc;
+				text-decoration: none;
+			}
+			
+			/*对话框样式 */
+			.dialog {
+			    display: none; /* 初始时隐藏对话框 */
+			    position: fixed; /* 固定定位，相对于浏览器窗口 */
+			    right: 1.5%; /* 距离屏幕右侧20px */
+			    top: 50%; /* 垂直居中 */
+			    transform: translateY(-50%);
+			    background-color: #EFD8A2;
+			    padding: 10px;
+			    border-radius: 10px;
+			    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+			    width: 28%; /* 对话框宽度 */
+				height: auto;
+				font-size: 22px;
+				flex-wrap: wrap;
+			    z-index: 1000; /* 确保对话框在其他元素之上 */
+			}
+			button{
+				position: absolute;
+				background-color: #EFD8A2;
+				border: 3px solid black;
+				border-radius: 20px;
+				width:auto;
+				height:10%;
+				font-size: 22px;
+			}
+			#dialogButton0{
+				top:25%;
+				left:6%;
+			}
+			#dialogButton1{
+				cursor: pointer;
+				top:40%;
+				left:6%;
+			}
+			#dialogButton2{
+				cursor: pointer;
+				top:55%;
+				left:6%;
+			}
+			#dialogButton3{
+				cursor: pointer;
+				top:70%;
+				left:6%;
+			}
+      #dialogButton4{
+				position: absolute;
+				background-color: #EFD8A2;
+				border: 3px solid black;
+				border-radius: 20px;
+				width:auto;
+				height:6%;
+				padding:10px;
+				font-size: 22px;
+				cursor: pointer;
+				top:85%;
+				left:6%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top">
+			<ul>
+				<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/">首页</a></li>
+				<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index20">查看地图</a></li>
+				<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index21">视频介绍</a></li>
+				<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index30">文物预览</a></li>
+				<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index36">趣味拼图</a></li>
+			</ul>
+		</div>
+		<div class="newmap">
+			<!-- 添加五个按钮 -->
+			
+			<button id="dialogButton1">初期发掘阶段（20世纪三、四十年代）</button>
+			<button id="dialogButton2">主动探索阶段（20世纪五、六十年代）</button>
+			<button id="dialogButton3">科学考古阶段（20世纪八十年代至今）</button>
+			<button id="dialogButton0">点击下方三个按钮查看对应详细描述  </button>
+      <a href="https://71-hu.github.io/Sanxingdui-Ruins/index30"  id="dialogButton4">查看完毕，点击跳转下一界面</a>
+			
+			<!-- 添加三个对话框样式 -->
+			<!-- 对话框1 -->
+			<div class="dialog" id="dialog1">
+				<p>1929年春，农民燕道诚在三星堆月亮湾燕家院子溉田挖水坑时发现玉石器坑，出土玉石器300余件。
+				这部分玉器除四川省博物馆、四川大学博物馆、广汉市文管所收藏部分外，其余不知下落。</p>
+				<p>这是三星堆遗址被埋藏在地下三千多年后，首次现于世间。20世纪30年代，三星堆遗址陆续出土几百件玉石器，其年代被定为西周时期。</p>
+			</div>
+			<!-- 对话框2 -->
+			<div class="dialog" id="dialog2">
+				<p>1963年，四川省文物管理委员会、四川大学历史系考古专业组成联合发掘队，
+				在月亮湾地点进行科学发掘。发现房址、灰坑等遗迹，出土玉石器、陶器、骨器、青铜器等遗物。</p>
+				<img src="img/1963.jpg" style="width: 100%; height: auto;">
+				<img src="img/1986.jpg" style="width: 100%; height: auto;">
+			</div>
+			<!-- 对话框3 -->
+			<div class="dialog" id="dialog3">
+				<p>1980年以后，四川省文物考古研究所等单位初步建立起遗址的分期及年代序列。</p>
+				<p>1986年，三星堆遗址的两个最重要的大型祭祀坑被发现，分别是一号坑和二号坑。</p>
+				<p>2019年10月至2020年10月，又有6个祭祀坑被找到并陆续启动发掘。</p>
+				<img src="img/2020.jpg" style="width: 100%; height: auto;">
+			</div>
+		</div>
+		
+		
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+			    // 获取所有按钮和对话框的DOM元素
+			    var buttons = document.querySelectorAll('button');
+			    var dialogs = document.querySelectorAll('.dialog');
+			
+			    // 为每个按钮添加点击事件
+			    buttons.forEach(function(button, index) {
+			        button.addEventListener('click', function() {
+			            // 隐藏所有对话框
+			            dialogs.forEach(function(dialog) {
+			                dialog.style.display = 'none';
+			            });
+			
+			            // 显示被点击按钮对应的对话框
+			            dialogs[index].style.display = 'block';
+			        });
+			    });
+			});
+		</script>
+	</body>
+</html>
