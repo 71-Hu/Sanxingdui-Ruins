@@ -66,7 +66,7 @@
     .artifact-container {    
         display: flex;    
         justify-content: center; /* 水平居中 */  
-        align-items: center; /* 垂直居中（如果需要的话）*/  
+        align-items: center; /* 垂直居中*/  
         margin-top: 0; /* 去除上外边距 */  
         width: 100%; /* 确保容器宽度占满整个视口 */  
     }    
@@ -102,44 +102,48 @@
 	}
 	/*导航栏样式*/
 	.top {
-	  font-size: 22px;
-	  width: 80%;
-	  position: absolute;
-	  margin: 0;
-	  z-index: 500;
-	  top: 20px; /* 距离顶部20px */
-	  left: 20px; /* 距离左侧20px */
+		font-size: 22px;
+	    width: 80%;
+		position:absolute;
+		top:0;
+		left: 0;
+		margin:0;
+		z-index: 500;
+	}		
+	.top div, .top ul {
+	    margin: 0;
+	    padding: 0;
 	}
-	
-	.top div,
 	.top ul {
-	  margin: 0;
-	  padding: 0;
+	    width: 500px;
+	    margin-left: 50px;
+	    height: 60px;
+	    list-style: none;
+	    display: flex;
+		cursor: pointer;
 	}
-	
-	.top ul {
-	  width: 400px;
-	  height: 60px;
-	  list-style: none;
-	  display: flex;
-	  cursor: pointer;
-	}
-	
 	.top ul li {
-	  width: 100px;
-	  height: 60px;
-	  line-height: 60px;
-	  text-align: center;
+	    width: 100px;
+	    height: 60px;
+	    line-height: 60px;
+	    text-align: center;
 	}
-	
 	.top ul li a {
-	  color: #ccc;
-	  text-decoration: none;
+	    color: #ccc;
+		text-decoration: none;
 	}
-
 </style>
 </head>
 <body>
+	<div class="top">
+			<ul>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index">首页</a></li>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index20">查看地图</a></li>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index21">视频介绍</a></li>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index30">文物预览</a></li>
+			<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index36">趣味拼图</a></li>
+			</ul>
+	</div>
 <div class="top auto flex">
 		<ul class="flex">
 		<li><a href="https://71-hu.github.io/Sanxingdui-Ruins/index">首页</a></li>
@@ -189,7 +193,7 @@
 			artifactCaption.textContent = captions[currentIndex]; // 更新文字说明
 			updateImageStyle();
         }, 500); // 设置延迟，与过渡效果时间一致
-	 // 创建蓝色圆形图片
+	 // 创建圆形图片
 	var blueCircle = document.querySelector('.blue-circle');
 	var newBlueCircle = blueCircle.cloneNode(true);
 	newBlueCircle.style.zIndex = -1;
