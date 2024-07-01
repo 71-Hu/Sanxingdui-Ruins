@@ -322,15 +322,14 @@
 		
 		// 添加 endBtn 的点击事件监听器
 		endBtn.addEventListener('click', () => {
-		    const endbox = document.querySelector('.endbox');
-		    endbox.style.display = 'block';
+			const endBtn = document.querySelector('.endBtn');
+			endBtn.style.display = 'none';
+			const endbox = document.querySelector('.endbox');
+			endbox.style.display = 'block';
 			const nextBtn = document.querySelector('.nextBtn');
 			nextBtn.style.display = 'block';
 		});
-		// 添加 nextBtn 的点击事件监听器
-		nextBtn.addEventListener('click', () => {
-		    
-		});
+
 	</script>
 </body>
 </html>
