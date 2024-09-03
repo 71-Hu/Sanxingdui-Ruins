@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>商青铜神树知识问答</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            align-items: flex-start;
+            justify-content: center;
+            background: linear-gradient(to right, #02090A, #725E36);
+            font-family: 'Arial', sans-serif; /* 添加字体样式 */
+        }
+        #container {
+            display: flex;
+            align-items: flex-start;
+        }
+        #left {
+            display: flex;
+            margin-right: 150px;
+            overflow-y: auto;
+            margin-top: 50px;
+        }
+        #left img {
+            max-width: 250%;
+            height: 600px;
+            width: 200%;
+        }
+        #expandBtn {
+            margin-top: 16px;
+            cursor: pointer;
+            color: #fff;
+        }
+        .arrow {
+            font-size: 24px;
+        }
+        #text1, #text2 {
+            display: inline;
+            color: #B9B6AE;
+        }
+        p {
+            margin-top: 16px;
+            width: 600px;
+            text-indent: 2em;
+            text-align: justify;
+            text-justify: inter-ideograph;
+            text-indent: 2em;
+        }
+        #underline {
+            width: 600px;
+            height: 1px;
+            background-color: white;
+            margin-top: 16px;
+        }
+
+        /* 问答界面样式 */
+        #qa-section {
+            margin-top: 32px;
+            text-align: left;
+            width: 600px;
+            background-color: rgba(255, 255, 255, 0.1); /* 添加半透明背景 */
+            padding: 20px; /* 添加内边距 */
+            border-radius: 8px; /* 添加圆角边框 */
+        }
+        .question {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #fff; /* 设置问题文字颜色 */
+        }
+        .options {
+            font-size: 20px;
+            margin-top: 12px;
+            color: #B9B6AE; /* 设置选项文字颜色 */
+        }
+        .options label {
+            display: block;
+            margin: 4px 0;
+        }
+        .options input[type="radio"] {
+            margin-right: 8px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #fff0bd; /* 按钮背景颜色 */
+            border: none;
+            border-radius: 4px;
+            color: #02090A;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 16px;
+        }
+        button:hover {
+            background-color: #ffd699; /* 按钮悬停背景颜色 */
+        }
+        .correct-answer {
+            display: none;
+            margin-top: 16px;
+        }
+        .error-message {
+            color: red;
+            display: none;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://71-hu.github.io/Sanxingdui-Ruins/index32" >
+    <span style="font-size: 25px; color: white;margin-top: 50px;display: block;">返回</span>
+</a>
+<!-- 问答界面 -->
+<div id="qa-section">
+    <h2 style="font-size: 24px; color: #fff;">关于商青铜神树的知识问答</h2>
+    <div class="question">
+        <p ><strong>问题一:</strong> 商青铜神树是在哪个遗址中被发现的？</p>
+        <div class="options">
+            <label><input type="radio" name="question1" value="A"> A. 三星堆</label>
+            <label><input type="radio" name="question1" value="B"> B. 马王堆</label>
+            <label><input type="radio" name="question1" value="C"> C. 秦始皇陵</label>
+            <label><input type="radio" name="question1" value="D"> D. 长沙汉墓</label>
+        </div>
+        <button onclick="checkAnswer('question1', 'A')">提交答案</button>
+        <div id="correct1" class="correct-answer">
+            恭喜你，答案正确！
+        </div>
+        <div id="error1" class="error-message">错误，答案是三星堆！</div>
+    </div>
+    <!-- 其他问题和答案可以类似添加 -->
+    <div class="question">
+        <p ><strong>问题二:</strong> 商青铜神树上面是否刻有文字和图案？</p>
+        <div class="options">
+            <label><input type="radio" name="question2" value="A"> A. 是</label>
+            <label><input type="radio" name="question2" value="B"> B. 否</label>
+
+        </div>
+        <button onclick="checkAnswer2('question2', 'A')">提交答案</button>
+        <div id="correct2" class="correct-answer">
+            恭喜你，答案正确！
+        </div>
+        <div id="error2" class="error-message">错误，答案是A！</div>
+    </div>
+
+    <div class="question">
+        <p ><strong>问题三:</strong> 商青铜神树商青铜神树共有多少棵？</p>
+        <div class="options">
+            <label><input type="radio" name="question3" value="A"> A. 一</label>
+            <label><input type="radio" name="question3" value="B"> B. 四</label>
+            <label><input type="radio" name="question3" value="C"> C. 八</label>
+            <label><input type="radio" name="question3" value="D"> D. 十</label>
+        </div>
+        <button onclick="checkAnswer3('question3', 'C')">提交答案</button>
+        <div id="correct3" class="correct-answer">
+            恭喜你，答案正确！
+        </div>
+        <div id="error3" class="error-message">错误，答案是C！</div>
+    </div>
+
+    <div class="question">
+        <p ><strong>问题四:</strong> 商青铜神树其中修复完整的一棵高达多少厘米？</p>
+        <div class="options">
+            <label><input type="radio" name="question4" value="A"> A. 365cm</label>
+            <label><input type="radio" name="question4" value="B"> B. 395cm</label>
+            <label><input type="radio" name="question4" value="C"> C. 600cm</label>
+            <label><input type="radio" name="question4" value="D"> D. 30cm</label>
+        </div>
+        <button onclick="checkAnswer4('question4', 'B')">提交答案</button>
+        <div id="correct4" class="correct-answer">
+            恭喜你，答案正确！
+        </div>
+        <div id="error4" class="error-message">错误，答案是B！</div>
+    </div>
+</div>
+
+
+<script>
+    function checkAnswer(questionName, correctValue) {
+        var options = document.getElementsByName(questionName);
+        var correctDiv = document.getElementById('correct1');
+        var errorDiv = document.getElementById('error1');
+
+        var selectedValue = '';
+
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                selectedValue = options[i].value;
+                break;
+            }
+        }
+
+        if (selectedValue === correctValue) {
+            correctDiv.style.display = 'block';
+            errorDiv.style.display = 'none';
+        } else {
+            correctDiv.style.display = 'none';
+            errorDiv.style.display = 'block';
+        }
+    }
+
+    function checkAnswer2(questionName, correctValue) {
+        var options = document.getElementsByName(questionName);
+        var correctDiv = document.getElementById('correct2');
+        var errorDiv = document.getElementById('error2');
+
+        var selectedValue = '';
+
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                selectedValue = options[i].value;
+                break;
+            }
+        }
+
+        if (selectedValue === correctValue) {
+            correctDiv.style.display = 'block';
+            errorDiv.style.display = 'none';
+        } else {
+            correctDiv.style.display = 'none';
+            errorDiv.style.display = 'block';
+        }
+    }
+
+    function checkAnswer3(questionName, correctValue) {
+        var options = document.getElementsByName(questionName);
+        var correctDiv = document.getElementById('correct3');
+        var errorDiv = document.getElementById('error3');
+
+        var selectedValue = '';
+
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                selectedValue = options[i].value;
+                break;
+            }
+        }
+
+        if (selectedValue === correctValue) {
+            correctDiv.style.display = 'block';
+            errorDiv.style.display = 'none';
+        } else {
+            correctDiv.style.display = 'none';
+            errorDiv.style.display = 'block';
+        }
+    }
+
+    function checkAnswer4(questionName, correctValue) {
+        var options = document.getElementsByName(questionName);
+        var correctDiv = document.getElementById('correct4');
+        var errorDiv = document.getElementById('error4');
+
+        var selectedValue = '';
+
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                selectedValue = options[i].value;
+                break;
+            }
+        }
+
+        if (selectedValue === correctValue) {
+            correctDiv.style.display = 'block';
+            errorDiv.style.display = 'none';
+        } else {
+            correctDiv.style.display = 'none';
+            errorDiv.style.display = 'block';
+        }
+    }
+</script>
+
+
+</body>
+</html>
